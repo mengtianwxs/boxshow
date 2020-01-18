@@ -5,8 +5,4 @@ ZZE::ZZE()
 
 }
 
-void ZZE::setContent(QString content)
-{
-    this->content=content;
 
-}

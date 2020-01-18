@@ -2,6 +2,7 @@
 #define CONTENT_BOXHEADER_H
 #include<QObject>
 
+//用来获取配电箱头部信息数据
 class Content_BoxHeader
 {
 public:

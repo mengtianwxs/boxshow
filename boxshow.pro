@@ -31,7 +31,8 @@ SOURCES += \
     element.cpp \
     zze.cpp \
     zze_mcb.cpp \
-    content_boxheader.cpp
+    content_boxheader.cpp \
+    content_mcb.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     element.h \
     zze.h \
     zze_mcb.h \
-    content_boxheader.h
+    content_boxheader.h \
+    content_mcb.h
 
 FORMS += \
         mainwindow.ui

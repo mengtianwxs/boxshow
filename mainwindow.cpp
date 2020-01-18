@@ -113,58 +113,7 @@ void MainWindow::resetCounterBox()
 void MainWindow::onContentreturnPressed()
 {
     QString content=le_content->text();
-    if(content=="mc"){
-        le_content->setText("MCB CA 1P");
-        le_content->cursorBackward(false,4);
-    }
 
-    if(content=="mc2"){
-        le_content->setText("MCB CA 2P");
-        le_content->cursorBackward(false,4);
-    }
-    if(content=="mc3"){
-        le_content->setText("MCB CA 3P");
-        le_content->cursorBackward(false,4);
-    }
-    if(content=="mc4"){
-        le_content->setText("MCB CA 4P");
-        le_content->cursorBackward(false,4);
-    }
-    if(content=="mcn"){
-        le_content->setText("MCB CA 1P+N");
-        le_content->cursorBackward(false,6);
-    }
-    if(content=="mc3n"){
-        le_content->setText("MCB CA 3P+N");
-        le_content->cursorBackward(false,6);
-    }
-
-    if(content=="md"){
-        le_content->setText("MCB DA 1P");
-        le_content->cursorBackward(false,4);
-    }
-
-    if(content=="md2"){
-        le_content->setText("MCB DA 2P");
-        le_content->cursorBackward(false,4);
-    }
-
-    if(content=="md3"){
-        le_content->setText("MCB DA 3P");
-        le_content->cursorBackward(false,4);
-    }
-    if(content=="md4"){
-        le_content->setText("MCB DA 4P");
-        le_content->cursorBackward(false,4);
-    }
-    if(content=="mdn"){
-        le_content->setText("MCB DA 1P+N");
-        le_content->cursorBackward(false,6);
-    }
-    if(content=="md3n"){
-        le_content->setText("MCB DA 3P+N");
-        le_content->cursorBackward(false,6);
-    }
 
     //关于mcb的正则表达式
     QRegExp re_mcb("([1-9][0-9]?[0-9]?[0-9]?[0-9]?)?m[c|d][2|3|4|n]?n?");
