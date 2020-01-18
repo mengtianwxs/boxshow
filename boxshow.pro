@@ -26,10 +26,20 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    box.cpp \
+    element.cpp \
+    zze.cpp \
+    zze_mcb.cpp \
+    content_boxheader.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    box.h \
+    element.h \
+    zze.h \
+    zze_mcb.h \
+    content_boxheader.h
 
 FORMS += \
         mainwindow.ui
