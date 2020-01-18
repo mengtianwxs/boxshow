@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "zze_mcb.h"
+
 #include <QMainWindow>
 #include<QStandardItemModel>
 #include<QTableView>
@@ -29,6 +31,9 @@ public:
     QPushButton* pb_insertBox;
     QPushButton* pb_clear;
     int couter_boxheader=0;
+    int couter=0;
+
+    ZZE_MCB* zze_mcb;
 
 
 //    QString
@@ -40,6 +45,7 @@ public:
     void initLeftAndRightArea();
     void initConnectEvent();
     void resetCounterBox();
+    void initZZE();
 
 
 

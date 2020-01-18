@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initTableView();
     initLeftAndRightArea();
     initConnectEvent();
+    initZZE();
 
 
 
@@ -110,6 +111,13 @@ void MainWindow::resetCounterBox()
 
 }
 
+void MainWindow::initZZE()
+{
+    zze_mcb=new ZZE_MCB();
+
+
+}
+
 void MainWindow::onContentreturnPressed()
 {
     QString content=le_content->text();
@@ -117,26 +125,14 @@ void MainWindow::onContentreturnPressed()
 
     //关于mcb的正则表达式
     QRegExp re_mcb("([1-9][0-9]?[0-9]?[0-9]?[0-9]?)?m[c|d][2|3|4|n]?n?");
-    QRegExp re_mcbnum("[1-9][0-9]?[0-9]?[0-9]?[0-9]?m[c|d][2|3|4|n]?n?");//有数量
-     QRegExp re_mcbnonum("m[c|d][2|3|4|n]?n?");//没有数量,默认1台
     if(re_mcb.exactMatch(content)){
+qDebug()<<"this is zze";
+        zze_mcb->setData(content);
+        le_content->setText(zze_mcb->getZZEData());
+        le_content->cursorBackward(false,zze_mcb->getIndex());
 
 
-
-        //2种情况，第一种有数量的情况，第二种没有数量的情况
-        //status 1
-        if(re_mcbnum.exactMatch(content)){
-            int m_index=content.indexOf("m");
-
-
-            int num=content.mid(0,m_index).toInt();
-            QString guige=content.mid(m_index,content.count()-1);
-             qDebug()<<"this is mcb"<<content.mid(0,m_index)<<guige;
-
-        }
-
-
-
+qDebug()<<zze_mcb->getZZEData()<<"num"<<zze_mcb->getNum();
 
     }
 
@@ -159,18 +155,33 @@ void MainWindow::onInsertBox()
 
      Content_BoxHeader* box_header=new Content_BoxHeader();
      box_header->setData(content);
-     model_left->setItem(couter_boxheader,0,new QStandardItem("箱体编号"));
-     model_left->setItem(couter_boxheader,1,new QStandardItem(box_header->getBianhao().toUpper()));
+     model_left->setItem(couter,0,new QStandardItem("箱体编号"));
+     model_left->setItem(couter,1,new QStandardItem(box_header->getBianhao().toUpper()));
      if(box_header->getTaishu()==0){
 
-        model_left->setItem(couter_boxheader,2,new QStandardItem(QString::number(1)));
+        model_left->setItem(couter,2,new QStandardItem(QString::number(1)));
      }else {
 
-         model_left->setItem(couter_boxheader,2,new QStandardItem(QString::number(box_header->getTaishu())));
+         model_left->setItem(couter,2,new QStandardItem(QString::number(box_header->getTaishu())));
 }
 
      couter_boxheader=couter_boxheader+1;
 
+
+
+
+    }
+
+    //mode_item
+    QRegExp re_mcb_all("MCB [C|D][1-9][0-9]?[0-9]?A [1|2|3|4]P(\\+N)?");
+ couter=couter+1;
+ qDebug()<<content<<"///";
+    if(re_mcb_all.exactMatch(content)){
+        qDebug()<<"pipei";
+
+        model_left->setItem(couter,0,new QStandardItem("微型断路器"));
+        model_left->setItem(couter,1,new QStandardItem(content));
+        model_left->setItem(couter,2,new QStandardItem(QString::number(zze_mcb->getNum())));
 
 
     }

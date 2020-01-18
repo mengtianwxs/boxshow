@@ -7,9 +7,12 @@ class ZZE_MCB :public ZZE
 public:
     ZZE_MCB();
     void setData(QString content);
-    void decodeData();
-     QString getZZEData();
+    void decodeData(QString content);
+
+    QString getZZEData();
      int getIndex();
+     int getNum();
+
 
 };
 

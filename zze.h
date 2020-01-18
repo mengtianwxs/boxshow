@@ -10,13 +10,20 @@ class ZZE
 
 public:
     ZZE();
+
+public:
     QString content;
     QString zze_content;
     int index;
-    virtual void getIndex();
-    virtual void setData(QString content);
-    virtual void decodeData();
-    virtual QString getZZEData();
+    int num;
+
+    virtual int getIndex()=0;
+    virtual void setData(QString content)=0;
+    virtual void decodeData(QString content)=0;
+    virtual QString getZZEData()=0;
+    virtual int getNum()=0;
+
+
 };
 
 #endif // ZZE_H
